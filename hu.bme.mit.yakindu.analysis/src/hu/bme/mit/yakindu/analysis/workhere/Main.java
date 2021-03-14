@@ -3,6 +3,7 @@ package hu.bme.mit.yakindu.analysis.workhere;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.junit.Test;
+import org.yakindu.base.types.Event;
 import org.yakindu.sct.model.sgraph.State;
 import org.yakindu.sct.model.sgraph.Statechart;
 import org.yakindu.sct.model.sgraph.Transition;
@@ -27,7 +28,7 @@ public class Main {
 		Statechart s = (Statechart) root;
 		TreeIterator<EObject> iterator = s.eAllContents();
 		int count  = 0;
-		while (iterator.hasNext()) {
+/*		while (iterator.hasNext()) {
 			EObject content = iterator.next();
 			if(content instanceof State) {
 				State state = (State) content;
@@ -43,8 +44,19 @@ public class Main {
 				}
 			}
 			count=count+1;
-		}
+		}*/
 		
+		while(iterator.hasNext()) {
+			EObject content = iterator.next();
+			if(content instanceof State) {
+				State state = (State) content;
+				System.out.println(state.getName());
+			}
+			if(content instanceof Event) {
+				Event event = (Event) content;
+				System.out.println(event.getName());
+			}
+		}
 		// Transforming the model into a graph representation
 		String content = model2gml.transform(root);
 		// and saving it
