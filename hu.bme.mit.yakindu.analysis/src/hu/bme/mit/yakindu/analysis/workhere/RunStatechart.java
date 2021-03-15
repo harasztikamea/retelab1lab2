@@ -48,4 +48,5 @@ public class RunStatechart {
 		System.out.println("W = " + s.getSCInterface().getWhiteTime());
 		System.out.println("B = " + s.getSCInterface().getBlackTime());
 	}
+
 }
